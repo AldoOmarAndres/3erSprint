@@ -16,7 +16,7 @@ function LoginPage() {
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "500px" }}
-          src="https://bestarion.com/wp-content/uploads/2021/05/digital-transformation-banking-pioneer.jpg"
+          src="loginimage.jpg"
           alt="BancPillier"
         />
 
