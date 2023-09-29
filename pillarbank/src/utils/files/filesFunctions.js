@@ -1,27 +1,24 @@
-/**
- * 
- * @param {string} clave pasamos el nombre de la clave del sessionStorage que queremos leer
- * @returns devuelve un arreglo de objetos de Javascript sobre el cual podemos operar
- */
+import fs from 'fs'
 
-export function leerSessionStorage(clave){
-  try {
-    return JSON.parse(sessionStorage.getItem(clave) || "");
-  } catch (error) {
-    return null
-  }
+const URL = "http://localhost:3000/";
+
+export async function escribirJson(file, data) {
+
+  await fs.writeFile(URL + `${file}`, JSON.stringify(data));
 }
 
-/**
- * 
- * @param {string} file pasamos el nombre del archivo sobre el cual vamos a escribir
- * @param {*} data objeto que vamos a guardar en el JSON ¡NO CONTROLA el formato!
- */
+export async function fetchUserData(userId, file) {
+  
+  // Lee el contenido del archivo JSON
+  try {
+    const data = await fetch(`${URL}${file}.json`).then((r) => r.json())
+    if (data) {
+      
+      return data.filter((d) => d.idU === userId);
 
-export function escribirSessionStorage(clave, data){
-  if (data === null) {
-    sessionStorage.removeItem(clave);
-  } else {
-    sessionStorage.setItem(clave, JSON.stringify(data))
+    }
+  } catch (error) {
+    // Manejo de errores, puedes registrarlos o devolver un objeto de error personalizado
+    throw error;
   }
 }

@@ -13,13 +13,13 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 
-import Layout from "../../components/Layout";
-import CardAccount from "../../components/cuentas/AccountCard";
-import AddAccount from "../../components/cuentas/AddAccount";
+import Layout from "../../../components/Layout";
+import CardAccount from "../../../components/cuentas/AccountCard";
+import AddAccount from "../../../components/cuentas/AddAccount";
 
 import { useEffect, useState } from "react";
 
-import Accounts from "../../data/bankaccounts.json";
+import Accounts from "../../../data/bankaccounts.json";
 
 export default function Account() {
   let [cuentas, setCuentas] = useState(Accounts);
