@@ -3,7 +3,8 @@
 import { Box, Button, HStack, Heading, VStack } from "@chakra-ui/react";
 import PagosCard from "../../components/PagosCard/PagosCard";
 import Layout from "../../components/Layout";
-import { fetchUserData, escribirJson } from "../../utils/files/filesFunctions";
+import { fetchUserData } from "../../utils/filesFunctions";
+import { useRouter } from 'next/navigation'
 
 export async function getServerSideProps(context) {
   const { params } = context;
@@ -54,25 +55,34 @@ export async function getStaticProps() {
 */
 
 export default function PagosPage({ user }) {
+  const router = useRouter()
+
   const pagos = user.map((d) =>
     d.servicios.map((s) => <PagosCard name={s.name} price={s.price} />)
   );
 
-  const handleClick = () => {
-    const data = {
-      idU: "1",
-      servicios: [
-        {
-          name: "YouTube Premium",
-          price: 3100,
-        },
-        {
-          name: "Spotify",
-          price: 2900,
-        },
-      ],
-    };
-    escribirJson("serviciosUser", data);
+  const handleClick = async () => {
+    await fetch("/api/userData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idU: "3",
+        servicios: [
+          {
+            name: "Algo",
+            price: 2900,
+          },
+        ],
+      }),
+    });
+    router.push({
+      pathname: '/[idUser]/pagos',
+      query: { idUser: user[0].idU }
+    }, 
+    undefined, { shallow: true }
+    )
   };
 
   return (
@@ -96,8 +106,9 @@ export default function PagosPage({ user }) {
             borderColor="gray.300"
             borderRadius="10px"
             flexWrap="wrap"
-            justifyContent="right"
+            justifyContent="center"
             spacing={6}
+            maxW='700px'
           >
             {pagos}
           </HStack>

@@ -12,13 +12,13 @@ import {
 export default function PagosCard({name, price}) {
   return (
     <>
-      <Card maxH="180px" size='sm' borderRadius='10px'>
+      <Card maxH="170px" size='sm' borderRadius='10px' maxW='150px' minW='150px' minH='170px'>
         <CardHeader textAlign="center">
           <Heading size='md'>{name}</Heading>
         </CardHeader>
-        <CardBody textAlign='center'>
-            <Text>$ {price}</Text>
+        <CardBody>
         </CardBody>
+        <Text  textAlign='center' mt='-20px'>$ {price}</Text>
         <CardFooter justifyContent='center'>
           <Button colorScheme="teal">Abonar</Button>
         </CardFooter>

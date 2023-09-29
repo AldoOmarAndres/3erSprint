@@ -1,11 +1,5 @@
-import fs from 'fs'
-
 const URL = "http://localhost:3000/";
 
-export async function escribirJson(file, data) {
-
-  await fs.writeFile(URL + `${file}`, JSON.stringify(data));
-}
 
 export async function fetchUserData(userId, file) {
   

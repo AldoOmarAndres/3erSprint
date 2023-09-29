@@ -2,7 +2,7 @@ import { useEffect, useContext, createContext, useState } from "react";
 import {
   readLocalStorage,
   writeLocalStorage,
-} from "../utils/storage/sessionStorage";
+} from "../utils/sessionStorage";
 
 
 
