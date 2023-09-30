@@ -12,10 +12,3 @@ export async function validarCredenciales(usuario, contraseña) {
   const usuarioValido = usersData.find((user) => user.usuario === usuario && user.password === contraseña);
   return usuarioValido;
 }
-
-const usuarioAlmacenado = sessionStorage.getItem('usuario');
-const usuario = usuarioAlmacenado ? JSON.parse(usuarioAlmacenado) : null;
-
-if (!usuario) {
-  router.push('/login');
-}

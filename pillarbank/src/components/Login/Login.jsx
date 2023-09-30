@@ -8,7 +8,6 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Stack,
     Button,
     Checkbox,
     Alert,
@@ -59,7 +58,7 @@ import { resolve } from "path";
       <Box textAlign="center">
         <Heading>Inicia sesión en tu cuenta</Heading>
         <Text>
-        <Link color="teal">Crea una cuenta</Link>
+          <Link color="teal" href="/">Crea una cuenta</Link>
         </Text>
       </Box>
     );
@@ -85,7 +84,7 @@ import { resolve } from "path";
         // Redirige a la página de inicio o a donde desees
         router.push(
           {
-            pathname: "/[idUser]/pagos",
+            pathname: "/[idUser]/",
             query: { idUser: userValido.id },
           },
           undefined,
@@ -124,7 +123,7 @@ import { resolve } from "path";
               </Checkbox>
             </Box>
             <Box>
-              <Link color="teal">Olvidaste tu contraseña?</Link>
+              <Link color="teal" href="/">Olvidaste tu contraseña?</Link>
             </Box>
           </HStack>
           <Button colorScheme="teal" width="full" mt="4" type="submit">

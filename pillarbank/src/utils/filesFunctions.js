@@ -40,7 +40,7 @@ export async function validarCredenciales(usuario, contraseña) {
   try {
     const data = await fetch(`${URL}usuarios.json`).then((r) => r.json())
     if (data) {
-      const usuarioValido = data.find((user) => user.usuario === usuario && user.password === Number(contraseña));
+      const usuarioValido = data.find((user) => user.usuario === usuario && user.password === contraseña);
       return usuarioValido;
 
     }
