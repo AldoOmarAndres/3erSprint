@@ -4,7 +4,21 @@ import { Box, Button, HStack, Heading, VStack } from "@chakra-ui/react";
 import PagosCard from "../../components/PagosCard/PagosCard";
 import Layout from "../../components/Layout";
 import { fetchUserData } from "../../utils/filesFunctions";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
+import { useState } from "react";
 
 export async function getServerSideProps(context) {
   const { params } = context;
@@ -25,64 +39,45 @@ export async function getServerSideProps(context) {
     };
   }
 }
-/*
-export async function getStaticProps() {
-  // Ruta al archivo JSON en la carpeta "public"
-  const filePath = "data/serviciosUser.json";
-
-  try {
-    // Lee el contenido del archivo JSON
-    const data = fs.readFileSync(filePath, "utf-8");
-
-    // Parsea el contenido JSON
-    const jsonData = JSON.parse(data);
-
-    // Retorna los datos como props
-    return {
-      props: {
-        data: jsonData.servicios,
-      },
-    };
-  } catch (error) {
-    console.error("Error al leer el archivo JSON:", error);
-    return {
-      props: {
-        data: [], // Puedes manejar el error de manera apropiada aquí
-      },
-    };
-  }
-}
-*/
 
 export default function PagosPage({ user }) {
-  const router = useRouter()
+  const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [newPago, setNewPago] = useState({
+    name: "",
+    price: 0,
+  });
 
   const pagos = user.map((d) =>
     d.servicios.map((s) => <PagosCard name={s.name} price={s.price} />)
   );
 
-  const handleClick = async () => {
-    await fetch("/api/userData", {
+  const handleSubmit = async () => {
+    await fetch("/api/servicios", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        idU: "3",
-        servicios: [
-          {
-            name: "Algo",
-            price: 2900,
-          },
-        ],
+        idU: user[0].idU,
+        servicios: [newPago],
       }),
     });
-    router.push({
-      pathname: '/[idUser]/pagos',
-      query: { idUser: user[0].idU }
-    }, 
-    undefined, { shallow: true }
-    )
+    router.push(
+      {
+        pathname: "/[idUser]/pagos",
+        query: { idUser: user[0].idU },
+      },
+      undefined,
+      { shallow: true }
+    );
+    onClose();
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setNewPago({ ...newPago, [e.target.name]: e.target.value });
   };
 
   return (
@@ -93,12 +88,11 @@ export default function PagosPage({ user }) {
         </Heading>
 
         <Box textAlign="center" mt="10px" mb="15px">
-          <Button>Nuevo Pago</Button>
+          <Button onClick={onOpen}>Nuevo Pago</Button>
         </Box>
 
         <VStack display="flex" pr="25%" pt="10px" pb="20px">
           <Heading size="md">Pagos por vencer</Heading>
-          <Button>Agregar un servicio</Button>
         </VStack>
         <VStack>
           <HStack
@@ -108,12 +102,44 @@ export default function PagosPage({ user }) {
             flexWrap="wrap"
             justifyContent="center"
             spacing={6}
-            maxW='700px'
+            maxW="700px"
           >
             {pagos}
           </HStack>
         </VStack>
-        <Button onClick={handleClick}>Modificar JSON</Button>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Agregar un Pago</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <FormControl>
+                <FormLabel>Nombre del pago o servicio</FormLabel>
+                <Input
+                  name="name"
+                  placeholder="Factura..."
+                  onChange={handleChange}
+                />
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Costo $</FormLabel>
+                <Input
+                  name="price"
+                  placeholder="$0.00"
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+                Agregar
+              </Button>
+              <Button onClick={onClose}>Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Layout>
     </>
   );
