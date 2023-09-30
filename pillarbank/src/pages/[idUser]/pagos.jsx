@@ -50,7 +50,7 @@ export default function PagosPage({ user }) {
   });
 
   const pagos = user.map((d) =>
-    d.servicios.map((s) => <PagosCard name={s.name} price={s.price} />)
+    d.servicios.filter((s) => s.price !== 0).map(s => <PagosCard name={s.name} price={s.price} id={user[0].idU} />)
   );
 
   const handleSubmit = async () => {

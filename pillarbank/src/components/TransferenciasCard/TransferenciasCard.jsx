@@ -19,12 +19,10 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 
 
 export default function TransferenciaCard({cuenta, idActual}) {
-  const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [transferencia, setTransferencia] = useState({
@@ -34,19 +32,21 @@ export default function TransferenciaCard({cuenta, idActual}) {
   });
 
   const handleSubmit = async () => {
+    
     await fetch("/api/cuentas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        transferencia
+        ...transferencia
       }),
     });
     onClose();
   };
 
   const handleChange = (e) => {
+    console.log(transferencia)
     setTransferencia({ ...transferencia, [e.target.name]: e.target.value });
   };
 
@@ -70,7 +70,7 @@ export default function TransferenciaCard({cuenta, idActual}) {
               <FormControl mt={4}>
                 <FormLabel>Monto</FormLabel>
                 <Input
-                  name="price"
+                  name="monto"
                   placeholder="$0.00"
                   onChange={handleChange}
                 />

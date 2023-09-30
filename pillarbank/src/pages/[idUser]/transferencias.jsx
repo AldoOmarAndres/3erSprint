@@ -33,6 +33,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         user: userData,
+        id: idUser
       },
     };
   } catch (error) {
@@ -44,11 +45,11 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function TransferenciasPage({ user }) {
+export default function TransferenciasPage({ user, id }) {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const cuentas = user.map((s) => (<TransferenciaCard cuenta={s} idActual={user.idU} />));
+  const cuentas = user.map((s) => (<TransferenciaCard cuenta={s} idActual={id} />));
 
   return (
     <>
