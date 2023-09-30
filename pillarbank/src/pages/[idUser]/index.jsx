@@ -19,7 +19,7 @@ import AddAccount from "../../components/cuentas/AddAccount";
 
 import { useEffect, useState } from "react";
 
-import Accounts from "../../data/bankaccounts.json";
+import Accounts from "../../../public/bankaccounts.json";
 
 export default function Account() {
   let [cuentas, setCuentas] = useState(Accounts);

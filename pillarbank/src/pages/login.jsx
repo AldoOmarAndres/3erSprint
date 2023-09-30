@@ -1,6 +1,6 @@
 import { Card, Stack, Image } from "@chakra-ui/react";
-import LoginArea from "../../components/Login/Login";
-import Layout from "../../components/Layout"
+import LoginArea from "../components/Login/Login";
+import Layout from "../components/Layout"
 
 function LoginPage() {
   return (
