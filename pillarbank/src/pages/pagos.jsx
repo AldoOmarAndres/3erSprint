@@ -48,7 +48,7 @@ export default function PagosPage() {
             justifyContent="right"
             spacing={6}
           >
-            {pagos}
+            {/* {pagos} */}
           </HStack>
         </VStack>
       

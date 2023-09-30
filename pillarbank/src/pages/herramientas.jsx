@@ -11,7 +11,7 @@ function AdditionalTools(){
         <Layout>
             <Flex justify="center">
                 <Accordion width="90%" allowMultiple>
-                    <AccordionItem>
+                    <AccordionItem >
                         <AccordionButton _expanded={{ bg: 'gray', color: 'white' }}>
                             <Box as="span" flex='1' textAlign='left'>Conversion de Monedas</Box>
                             <AccordionIcon/>

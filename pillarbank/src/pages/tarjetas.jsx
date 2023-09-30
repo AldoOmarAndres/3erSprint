@@ -22,7 +22,7 @@ export default function page(props){
 
 export const getServerSideProps = async () =>{
     // const user = leerSessionStorage("usuario")
-    const user = {id: 0}
+    const user = {id: 1}
     const data = await fetchUserData(user.id, "credit_cards")
 
     return {props: { data }}

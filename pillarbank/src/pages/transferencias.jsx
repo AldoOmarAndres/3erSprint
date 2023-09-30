@@ -1,10 +1,11 @@
 import { Box, Button, HStack, Heading, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import TransferenciaCard from "../components/TransferenciasCard/transferenciasCard";
+import Layout from "../components/Layout"
 
 export default function TransferenciasPage() {
   return (
-    <>
+    <Layout>
       <Heading textAlign="center" mt="10px">
         Transferencias
       </Heading>
@@ -29,6 +30,6 @@ export default function TransferenciasPage() {
           <TransferenciaCard name="Harold" />
         </SimpleGrid>
       </Box>
-    </>
+    </Layout>
   );
 }

@@ -60,7 +60,7 @@ export default function Id(props){
 
 
 export const getServerSideProps = (async ({query: {id}}) =>{
-    const data = await fetchUserData(0, "credit_cards")
+    const data = await fetchUserData(1, "credit_cards")
     const card = data.filter(c => c.id == id)[0]
     return {props: { card }  }
 })
