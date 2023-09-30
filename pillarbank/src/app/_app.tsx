@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import {CurrentUserProvider} from '../hooks/currentUser'
+import {CurrentUserProvider} from '../pages/api/currentUser'
 
 export default function App({ Component, pageProps }) {
   return (

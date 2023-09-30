@@ -32,3 +32,20 @@ export async function fetchTransferenciasData(userId, file) {
     throw error;
   }
 }
+
+export async function validarCredenciales(usuario, contraseña) {
+  console.log(usuario, contraseña)
+
+  //const jsonData = await fsPromises.readFile(path);
+  try {
+    const data = await fetch(`${URL}usuarios.json`).then((r) => r.json())
+    if (data) {
+      const usuarioValido = data.find((user) => user.usuario === usuario && user.password === Number(contraseña));
+      return usuarioValido;
+
+    }
+  } catch (error) {
+    // Manejo de errores, puedes registrarlos o devolver un objeto de error personalizado
+    throw error;
+  }
+}
