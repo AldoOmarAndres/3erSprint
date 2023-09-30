@@ -119,6 +119,7 @@ export default function PagosPage({ user }) {
                   name="name"
                   placeholder="Factura..."
                   onChange={handleChange}
+                  isRequired
                 />
               </FormControl>
 

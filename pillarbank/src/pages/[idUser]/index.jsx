@@ -38,10 +38,12 @@ export default function Account() {
         <Accordion allowToggle width="95%">
           <AccordionItem>
             <AccordionButton
-              bg="gray"
-              _expanded={{ bg: "teal.100" }}
+              bg="teal.400"
+              _expanded={{ bg: "teal.400" }}
+              _hover={{bg:"teal.300"}}
               padding="15px"
               borderRadius="3px"
+              title="Expandir añadir cuenta"
             >
               <Box as="span" flex="1" textAlign="left" />
               <Icon as={AddIcon} />

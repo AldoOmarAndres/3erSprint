@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 
 function LoginPage() {
   return (
-    <Layout>
+    <Layout title="Login">
       <Card
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
@@ -16,8 +16,8 @@ function LoginPage() {
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "500px" }}
-          src="loginimage.jpg"
-          alt="BancPillier"
+          src="image/banco.webp"
+          alt="PillarBank"
         />
 
         <Stack>
