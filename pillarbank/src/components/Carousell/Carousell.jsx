@@ -11,7 +11,7 @@ import Layout from "../Layout";
 
 const images = [
   {
-    url: "image/imagen1.png",
+    url: "image/cliente1.webp",
     alt: "Imagen 1",
     width: "600px",
   },
@@ -21,23 +21,23 @@ const images = [
     width: "600px",
   },
   {
-    url: "image/imagen3.png",
+    url: "image/cliente3.webp",
     alt: "Imagen 3",
     width: "600px",
   },
   {
-    url: "image/imagen22.png",
+    url: "image/cliente4.webp",
     alt: "Imagen 22",
     width: "600px",
   },
   {
-    url: "image/imagen2.png",
+    url: "image/cliente2.webp",
     alt: "Imagen 2",
     width: "600px",
   },
   {
-    url: "image/reunionadministrativa.jpg",
-    alt: "reunionadministrativa",
+    url: "image/administracion.webp",
+    alt: "administracion",
     width: "600px",
   },
 ];
@@ -63,7 +63,8 @@ export default function MyCarousel (){
                 <img
                   src={image.url}
                   alt={image.alt}
-                  style={{ width: image.width }}
+                  width= {image.width}
+                  height= "auto"
                 />
               </div>
             ))}

@@ -7,6 +7,8 @@ import {
     StackDivider,
     Box,
     Text,
+    Avatar,
+    HStack,
   } from "@chakra-ui/react";
 import Layout from "../components/Layout";
   
@@ -19,9 +21,12 @@ import Layout from "../components/Layout";
         <Layout>
             <Card maxWidth="400px" m="auto" height="70%" mt="5%">
                 <CardHeader>
+                <HStack justify={"center"}>
+                <Avatar name="" src="" size={"lg"}/>
                 <Heading size="lg" textAlign="center">
                     Mi perfil
                 </Heading>
+                </HStack>
                 </CardHeader>
                 <CardBody marginTop="28px">
                 <Stack divider={<StackDivider />} spacing="2.5" marginTop="-2rem">

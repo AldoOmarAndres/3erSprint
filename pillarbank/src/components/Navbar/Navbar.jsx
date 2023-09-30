@@ -14,7 +14,7 @@ export default function Navbar () {
           <Box alignItems="center" display="flex">
             <HStack display="flex" dir="row" wrap="wrap">
               <Link href="/" fontSize="40" fontWeight="bold">
-                <Image src="/image/Logo.png" alt="Logo" width={64} height={64} mr={2} />
+                <Image src="/image/logo.png" alt="Logo" width={64} height={64} mr={2} />
               </Link>
               <Link href="/" fontSize="40" fontWeight="bold">
                 <Text fontSize='2xl'>PillarBank</Text>

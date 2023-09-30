@@ -11,6 +11,8 @@ export default function Layout({children, title}){
         <ChakraProvider>
             <Head>
                 <title>PillarBank - {title}</title>
+                <link rel="icon" href="/image/logo.png" sizes="any" />
+                <meta name="PillarBank" lang="es" content="Banco"></meta>
             </Head>
             {path == "/login" ? null : <Stack mb={10}><Navbar/></Stack>}
             {children}

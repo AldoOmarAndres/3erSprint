@@ -10,6 +10,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/image/logo.png" sizes="any" />
+      <meta name="PillarBank" lang="es" content="Banco"></meta>
       <body>{children}</body>
     </html>
   )

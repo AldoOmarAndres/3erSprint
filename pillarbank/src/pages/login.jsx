@@ -16,8 +16,8 @@ function LoginPage() {
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "500px" }}
-          src="image/techbank.jpg"
-          alt="BancPillier"
+          src="image/banco.webp"
+          alt="PillarBank"
         />
 
         <Stack>

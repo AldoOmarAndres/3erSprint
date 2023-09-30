@@ -56,7 +56,7 @@ import {
       <Box textAlign="center">
         <Heading>Inicia sesión en tu cuenta</Heading>
         <Text>
-          O <Link color="teal">Crea una cuenta</Link>
+          <Link color="teal" href="/">Crea una cuenta</Link>
         </Text>
       </Box>
     );
@@ -110,7 +110,7 @@ import {
               </Checkbox>
             </Box>
             <Box>
-              <Link color="teal">Olvidaste tu contraseña?</Link>
+              <Link color="teal" href="/">Olvidaste tu contraseña?</Link>
             </Box>
           </HStack>
           <Button colorScheme="teal" width="full" mt="4" type="submit">
