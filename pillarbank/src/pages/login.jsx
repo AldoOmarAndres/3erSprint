@@ -1,10 +1,10 @@
 import { Card, Stack, Image } from "@chakra-ui/react";
-import LoginArea from "../../components/Login/Login";
-import Layout from "../../components/Layout"
+import LoginArea from "../components/Login/Login";
+import Layout from "../components/Layout"
 
 function LoginPage() {
   return (
-    <Layout>
+    <Layout title="Login">
       <Card
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
@@ -16,7 +16,7 @@ function LoginPage() {
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "500px" }}
-          src="https://bestarion.com/wp-content/uploads/2021/05/digital-transformation-banking-pioneer.jpg"
+          src="image/techbank.jpg"
           alt="BancPillier"
         />
 

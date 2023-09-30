@@ -76,7 +76,7 @@ import {
       // Si el usuario y la contraseña son "admin" y "password"
       if (user === "admin" && password === "admin") {
         // Inicio de sesión exitoso, redirigir a otra página
-        router.push("/home");
+        router.push("/");
       } else {
         setError(true);
       }
