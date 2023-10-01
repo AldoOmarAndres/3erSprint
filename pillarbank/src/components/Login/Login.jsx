@@ -78,7 +78,7 @@ import { resolve } from "path";
       console.log(userValido)
       if (userValido) {
         // Almacena la información del usuario en sessionStorage
-        const usuario = { nombre: userValido.nombre, correo: userValido.correo, id: userValido.id };
+        const usuario = { nombre: userValido.nombre, usuario: userValido.usuario, correo: userValido.correo, id: userValido.id };
         sessionStorage.setItem('usuario', JSON.stringify(usuario));
       
         // Redirige a la página de inicio o a donde desees

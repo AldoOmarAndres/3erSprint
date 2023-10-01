@@ -1,11 +1,20 @@
-import React from "react";
+'use client'
+import React, {useEffect} from "react";
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons"; // Importa ChevronDownIcon desde @chakra-ui/icons
 
 import Link from "next/link";
 
 const DropdownMenu = () => {
-  // const {isLogged, setIsLogged} = useAuth()
+  useEffect(() => {
+    const usuarioAlmacenado = sessionStorage.getItem('usuario');
+    const usuario = usuarioAlmacenado ? JSON.parse(usuarioAlmacenado) : null;
+    if (!usuario) {
+      router.push('/login');
+    }
+  }, [])
+  
+  
   return (
       <Menu>
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
