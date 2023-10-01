@@ -1,7 +1,7 @@
 # PillarBank
 
-## 3er Sprint
-En este srpint se realizó una aplicación utilizando NextJS, un framework el cual nos permite poder alternar entre el uso de SSR y CSR.
+## Sprint-3-ITBA
+En este Sprint se realizó una aplicación utilizando NextJS, un framework el cual nos permite poder alternar entre el uso de SSR y CSR.
 Esto resulta muy útil para diferentes partes de la aplicación, y ayuda a que el sitio web sea fácil de manejar por el SEO de los navegadores.
 
 ## Iniciando la aplicación
