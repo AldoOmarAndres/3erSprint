@@ -1,12 +1,12 @@
 import Cards from 'react-credit-cards-2'
-import { leerSessionStorage } from "../../utils/sessionStorage"
-export default function Tarjeta({card, ocult}){
+
+export default function Tarjeta({card}){
     return(
         <Cards
             number={card.number}
-            expiry={ocult ? card.expiry : "****"}
+            expiry="****"
             cvc={card.cvc}
-            name={"Juan Carlos"}
+            name={card.nombre}
             focused={"name"}
             preview={true}
             issuer={"mastercard"}

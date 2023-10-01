@@ -72,12 +72,31 @@ import {
     const handleLogin = (e) => {
       e.preventDefault();
     
+<<<<<<< Updated upstream
       // Si el usuario y la contraseña son "admin" y "password"
       if (user === "admin" && password === "admin") {
         // Inicio de sesión exitoso, redirigir a otra página
         router.push("/");
       } else {
         setError(true);
+=======
+      const userValido = await validarCredenciales(user, password)
+      console.log(userValido)
+      if (userValido) {
+        // Almacena la información del usuario en sessionStorage
+        const usuario = { usuario: userValido.usuario, nombre: userValido.nombre, correo: userValido.correo, id: userValido.id };
+        sessionStorage.setItem('usuario', JSON.stringify(usuario));
+      
+        // Redirige a la página de inicio o a donde desees
+        router.push(
+          {
+            pathname: "/[idUser]/",
+            query: { idUser: userValido.id },
+          },
+          undefined,
+          { shallow: true }
+        );
+>>>>>>> Stashed changes
       }
     };
   

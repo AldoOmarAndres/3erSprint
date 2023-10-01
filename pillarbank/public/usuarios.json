@@ -1,0 +1,6 @@
+[
+
+  {"usuario":"Aldo", "nombre":"Aldano Andres", "password":"12345678", "correo":"aldoandres@gmail.com", "id":1},
+  {"usuario":"Nico", "nombre":"Nicolas Colombo", "password":"contraseña", "correo":"nicolas@yahoo.com", "id":2},
+  {"usuario":"Manuel","nombre":"Manuel Zanon", "password":"pas123", "correo":"manuZan@gmail.com", "id":3}
+]

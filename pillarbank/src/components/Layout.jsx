@@ -14,7 +14,7 @@ export default function Layout({children, title}){
                 <link rel="icon" href="/image/logo.png" sizes="any" />
                 <meta name="PillarBank" lang="es" content="Banco PillarBank" ></meta>
             </Head>
-            {path == "/login" ? null : <Stack mb={10}><Navbar/></Stack>}
+            {path == "/login"? null : <Stack mb={10}><Navbar/></Stack>}
             {children}
             {path == "/contacto" ? null : <Footer/>}
         </ChakraProvider>
