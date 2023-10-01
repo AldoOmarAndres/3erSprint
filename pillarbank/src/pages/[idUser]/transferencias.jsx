@@ -1,7 +1,7 @@
 import { Box, Button, HStack, Heading, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
-import TransferenciaCard from "../components/TransferenciasCard/transferenciasCard";
-import Layout from "../components/Layout"
+import TransferenciaCard from "../../components/TransferenciasCard/transferenciasCard";
+import Layout from "../../components/Layout"
 
 export default function TransferenciasPage() {
   return (

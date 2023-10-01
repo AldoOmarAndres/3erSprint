@@ -69,17 +69,9 @@ import {
     const [error, setError] = useState(false);
     const router = useRouter()
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
       e.preventDefault();
     
-<<<<<<< Updated upstream
-      // Si el usuario y la contraseña son "admin" y "password"
-      if (user === "admin" && password === "admin") {
-        // Inicio de sesión exitoso, redirigir a otra página
-        router.push("/");
-      } else {
-        setError(true);
-=======
       const userValido = await validarCredenciales(user, password)
       console.log(userValido)
       if (userValido) {
@@ -96,7 +88,6 @@ import {
           undefined,
           { shallow: true }
         );
->>>>>>> Stashed changes
       }
     };
   

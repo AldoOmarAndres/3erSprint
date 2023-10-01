@@ -6,10 +6,10 @@ import {
   Heading,
   VStack,
 } from "@chakra-ui/react";
-import PagosCard from "../components/PagosCard/PagosCard";
-import Layout from "../components/Layout";
+import PagosCard from "../../components/PagosCard/PagosCard";
+import Layout from "../../components/Layout";
 // import {leerSessionStorage, escribirSessionStorage} from '../utils/files/filesFunctions';
-import * as info from '../data/serviciosUser.json'
+import * as info from '../../data/serviciosUser.json'
 import {useEffect} from 'react'
 
 export default function PagosPage() {

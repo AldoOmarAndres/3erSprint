@@ -2,12 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Menu, MenuButton, MenuList, MenuItem, Button, Divider } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons"; // Importa ChevronDownIcon desde @chakra-ui/icons
-<<<<<<< Updated upstream
-import { useAuth } from "../../hooks/useAuth";
-
-=======
 import { useRouter } from "next/router";
->>>>>>> Stashed changes
 import Link from "next/link";
 
 const DropdownMenu = () => {
