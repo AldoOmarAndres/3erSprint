@@ -1,37 +1,32 @@
-import fsPromises from 'fs/promises';
-import path from 'path';
+import fsPromises from "fs/promises";
+import path from "path";
 
 export default async function handler(req, res) {
+  const dataFilePath = path.join(process.cwd(), `public/bankaccounts.json`);
 
-  const dataFilePath = path.join(process.cwd(), `public/bankaccounts.json`)
-
-  
-
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     try {
-      
       const jsonData = await fsPromises.readFile(dataFilePath);
       const objectData = JSON.parse(jsonData);
 
-
       const v = req.body;
 
-      objectData.find(c => c.idU == v.id1).balance -= Number(v.monto);
-      objectData.find(c => c.numberAccount == v.cuentaDestino).balance += Number(v.monto);
-
-      // Convert the object back to a JSON string
+      objectData.find((c) => c.idU == v.id1).balance -= Number(v.monto);
+      objectData.find((c) => c.numberAccount == v.cuentaDestino).balance +=
+        Number(v.monto);
       const updatedData = JSON.stringify(objectData);
 
-      // Write the updated data to the JSON file
+      //Guardamos la nueva información
       await fsPromises.writeFile(dataFilePath, updatedData);
 
-      // Send a success response
-      res.status(200).json({ message: 'Data stored successfully' });
+      //Respondemos si salió todo correctamente con un código 200
+      res.status(200).json({ message: "Información almacenada exitosamente" });
     } catch (error) {
-      // Send an error response
-      console.log(error)
-      res.status(500).json({ message: 'Error storing data' });
+      //Respondemos con un código 500 si hubo algún error
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "Error al intentar guardar la información" });
     }
   }
-
 }

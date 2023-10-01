@@ -20,9 +20,8 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import { useState } from "react";
 
-export default function PagosCard({name, price, id}) {
+export default function PagosCard({ name, price, id }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleSubmit = async () => {
@@ -34,7 +33,7 @@ export default function PagosCard({name, price, id}) {
       body: JSON.stringify({
         name: name,
         price: price,
-        idU : id
+        idU: id,
       }),
     });
     onClose();
@@ -42,34 +41,44 @@ export default function PagosCard({name, price, id}) {
 
   return (
     <>
-      <Card maxH="170px" size='sm' borderRadius='10px' maxW='150px' minW='150px' minH='170px'>
+      <Card
+        maxH="170px"
+        size="sm"
+        borderRadius="10px"
+        maxW="150px"
+        minW="150px"
+        minH="170px"
+      >
         <CardHeader textAlign="center">
-          <Heading size='md'>{name}</Heading>
+          <Heading size="md">{name}</Heading>
         </CardHeader>
-        <CardBody>
-        </CardBody>
-        <Text  textAlign='center' mt='-20px'>$ {price}</Text>
-        <CardFooter justifyContent='center'>
-          <Button colorScheme="teal" onClick={onOpen}>Abonar</Button>
+        <CardBody></CardBody>
+        <Text textAlign="center" mt="-20px">
+          $ {price}
+        </Text>
+        <CardFooter justifyContent="center">
+          <Button colorScheme="teal" onClick={onOpen}>
+            Abonar
+          </Button>
         </CardFooter>
       </Card>
       <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Abonar</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
-              <Text>Está por abonar: {name}</Text>
-              <Text>Por un total de: {price}</Text>
-            </ModalBody>
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
-                Pagar
-              </Button>
-              <Button onClick={onClose}>Cancelar</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Abonar</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <Text>Está por abonar: {name}</Text>
+            <Text>Por un total de: {price}</Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+              Pagar
+            </Button>
+            <Button onClick={onClose}>Cancelar</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 }

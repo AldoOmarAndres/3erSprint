@@ -5,35 +5,24 @@ import {
   HStack,
   Heading,
   SimpleGrid,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
-  FormControl,
-  FormLabel,
-  Input,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import TransferenciaCard from "../../components/TransferenciasCard/transferenciasCard";
-import { useState } from "react";
 import Layout from "../../components/Layout";
 import { fetchTransferenciasData } from "../../utils/filesFunctions";
 
+//Obtenemos los datos de las cuentas del banco del archivo "bankaccounts"
 export async function getServerSideProps(context) {
   const { params } = context;
   const idUser = params.idUser;
   try {
     const userData = await fetchTransferenciasData(idUser, "bankaccounts");
-
     return {
       props: {
         user: userData,
-        id: idUser
+        id: idUser,
       },
     };
   } catch (error) {
@@ -46,10 +35,9 @@ export async function getServerSideProps(context) {
 }
 
 export default function TransferenciasPage({ user, id }) {
-  const router = useRouter();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const cuentas = user.map((s) => (<TransferenciaCard cuenta={s} idActual={id} />));
+  const cuentas = user.map((s) => (
+    <TransferenciaCard cuenta={s} idActual={id} />
+  ));
 
   return (
     <>
@@ -58,7 +46,7 @@ export default function TransferenciasPage({ user, id }) {
           Transferencias
         </Heading>
         <Box display="grid" textAlign="center" mt="2rem" p="20px">
-          <HStack justifyContent="center"> 
+          <HStack justifyContent="center">
             <Button colorScheme="teal">Transferir con Alias, CBU o CVU</Button>
           </HStack>
         </Box>

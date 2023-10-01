@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
+//Obtenemos los datos del servidor
 export async function getServerSideProps(context) {
   const { params } = context;
   const idUser = params.idUser;
@@ -50,9 +51,12 @@ export default function PagosPage({ user }) {
   });
 
   const pagos = user.map((d) =>
-    d.servicios.filter((s) => s.price !== 0).map(s => <PagosCard name={s.name} price={s.price} id={user[0].idU} />)
+    d.servicios
+      .filter((s) => s.price !== 0)
+      .map((s) => <PagosCard name={s.name} price={s.price} id={user[0].idU} />)
   );
 
+  //Guardamos el nuevo servicio o pago en el archivo "servicios"
   const handleSubmit = async () => {
     await fetch("/api/servicios", {
       method: "POST",
